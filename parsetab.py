@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'BUILD CARRY CHALLENGER COLON COMMA DIVIDE EQUALS FF FLEX GANAR GG GO_NEXT HIERRO ID JG_GAP LBRACKET LPAREN META MINUS NEWLINE NORMAL NUMBER ORO PERDER PLUS PUSH RANKED RBRACKET RPAREN RUN_IT_DOWN_MID SEMICOLON STRING TAB TEAM TIMES TROLLprogram : statementsstatements : statements statement\n                  | statementstatement : if_statement\n                 | else_statement\n                 | print_statement\n                 | assignment_statement\n                 | function_definitionif_statement : RANKED ORO expression META expression COLON statementselse_statement : NORMAL COLON statementsprint_statement : TAB STRING SEMICOLONassignment_statement : ID ORO expression SEMICOLONfunction_definition : BUILD ID COLON statementsexpression : NUMBER\n                  | STRING\n                  | ID'
+_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDEleftLPARENRPARENBIGGER BIGGEROR DANCE DIVIDE EQUAL EQUALS FLOAT ID INT LNAME LPAREN MINUS NAME NOTEQUALS PLUS PRINT RANKED RPAREN SMALLER SMALLEROR THEN TIMES\n    result : expression\n           | if_statement\n           | print\n           | empty\n    \n    result : ID EQUAL expression\n    \n    expression : INT\n               | FLOAT\n    \n    expression : NAME\n               | LNAME\n    \n    expression : ID\n    \n    expression : expression TIMES expression\n               | expression DIVIDE expression\n               | expression PLUS expression\n               | expression MINUS expression\n    \n    print : PRINT LPAREN expression RPAREN\n    \n    if_statement : RANKED compare THEN expression\n                 | RANKED compare THEN print\n    \n    compare : expression EQUALS expression\n            | expression NOTEQUALS expression\n            | expression BIGGER expression\n            | expression BIGGEROR expression\n            | expression SMALLER expression\n            | expression SMALLEROR expression\n    \n    expression : LPAREN expression RPAREN\n    \n    empty : \n    '
     
-_lr_action_items = {'RANKED':([0,2,3,4,5,6,7,8,14,16,24,25,27,29,30,32,33,],[9,9,-3,-4,-5,-6,-7,-8,-2,9,9,-11,9,-12,9,9,9,]),'NORMAL':([0,2,3,4,5,6,7,8,14,16,24,25,27,29,30,32,33,],[10,10,-3,-4,-5,-6,-7,-8,-2,10,10,-11,10,-12,10,10,10,]),'TAB':([0,2,3,4,5,6,7,8,14,16,24,25,27,29,30,32,33,],[11,11,-3,-4,-5,-6,-7,-8,-2,11,11,-11,11,-12,11,11,11,]),'ID':([0,2,3,4,5,6,7,8,13,14,15,16,18,24,25,27,28,29,30,32,33,],[12,12,-3,-4,-5,-6,-7,-8,19,-2,23,12,23,12,-11,12,23,-12,12,12,12,]),'BUILD':([0,2,3,4,5,6,7,8,14,16,24,25,27,29,30,32,33,],[13,13,-3,-4,-5,-6,-7,-8,-2,13,13,-11,13,-12,13,13,13,]),'$end':([1,2,3,4,5,6,7,8,14,24,25,29,30,33,],[0,-1,-3,-4,-5,-6,-7,-8,-2,-10,-11,-12,-13,-9,]),'ORO':([9,12,],[15,18,]),'COLON':([10,19,21,22,23,31,],[16,27,-14,-15,-16,32,]),'STRING':([11,15,18,28,],[17,22,22,22,]),'NUMBER':([15,18,28,],[21,21,21,]),'SEMICOLON':([17,21,22,23,26,],[25,-14,-15,-16,29,]),'META':([20,21,22,23,],[28,-14,-15,-16,]),}
+_lr_action_items = {'ID':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[6,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,]),'INT':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,]),'FLOAT':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,]),'NAME':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,]),'LNAME':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,]),'LPAREN':([0,11,12,13,14,15,16,17,18,23,30,31,32,33,34,35,36,],[11,11,11,23,11,11,11,11,11,11,11,11,11,11,11,11,11,]),'RANKED':([0,],[12,]),'PRINT':([0,30,],[13,13,]),'$end':([0,1,2,3,4,5,6,7,8,9,10,20,24,25,26,27,28,29,38,39,46,],[-25,0,-1,-2,-3,-4,-10,-6,-7,-8,-9,-10,-11,-12,-13,-14,-5,-24,-16,-17,-15,]),'TIMES':([2,6,7,8,9,10,19,20,22,24,25,26,27,28,29,37,38,40,41,42,43,44,45,],[14,-10,-6,-7,-8,-9,14,-10,14,-11,-12,14,14,14,-24,14,14,14,14,14,14,14,14,]),'DIVIDE':([2,6,7,8,9,10,19,20,22,24,25,26,27,28,29,37,38,40,41,42,43,44,45,],[15,-10,-6,-7,-8,-9,15,-10,15,-11,-12,15,15,15,-24,15,15,15,15,15,15,15,15,]),'PLUS':([2,6,7,8,9,10,19,20,22,24,25,26,27,28,29,37,38,40,41,42,43,44,45,],[16,-10,-6,-7,-8,-9,16,-10,16,-11,-12,-13,-14,16,-24,16,16,16,16,16,16,16,16,]),'MINUS':([2,6,7,8,9,10,19,20,22,24,25,26,27,28,29,37,38,40,41,42,43,44,45,],[17,-10,-6,-7,-8,-9,17,-10,17,-11,-12,-13,-14,17,-24,17,17,17,17,17,17,17,17,]),'EQUAL':([6,],[18,]),'RPAREN':([7,8,9,10,19,20,24,25,26,27,29,37,],[-6,-7,-8,-9,29,-10,-11,-12,-13,-14,-24,46,]),'EQUALS':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,31,-11,-12,-13,-14,-24,]),'NOTEQUALS':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,32,-11,-12,-13,-14,-24,]),'BIGGER':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,33,-11,-12,-13,-14,-24,]),'BIGGEROR':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,34,-11,-12,-13,-14,-24,]),'SMALLER':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,35,-11,-12,-13,-14,-24,]),'SMALLEROR':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,36,-11,-12,-13,-14,-24,]),'THEN':([7,8,9,10,20,21,24,25,26,27,29,40,41,42,43,44,45,],[-6,-7,-8,-9,-10,30,-11,-12,-13,-14,-24,-18,-19,-20,-21,-22,-23,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'program':([0,],[1,]),'statements':([0,16,27,32,],[2,24,30,33,]),'statement':([0,2,16,24,27,30,32,33,],[3,14,3,14,3,14,3,14,]),'if_statement':([0,2,16,24,27,30,32,33,],[4,4,4,4,4,4,4,4,]),'else_statement':([0,2,16,24,27,30,32,33,],[5,5,5,5,5,5,5,5,]),'print_statement':([0,2,16,24,27,30,32,33,],[6,6,6,6,6,6,6,6,]),'assignment_statement':([0,2,16,24,27,30,32,33,],[7,7,7,7,7,7,7,7,]),'function_definition':([0,2,16,24,27,30,32,33,],[8,8,8,8,8,8,8,8,]),'expression':([15,18,28,],[20,26,31,]),}
+_lr_goto_items = {'result':([0,],[1,]),'expression':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[2,19,22,24,25,26,27,28,37,38,40,41,42,43,44,45,]),'if_statement':([0,],[3,]),'print':([0,30,],[4,39,]),'empty':([0,],[5,]),'compare':([12,],[21,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,21 +26,30 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> program","S'",1,None,None,None),
-  ('program -> statements','program',1,'p_program','interpreter.py',107),
-  ('statements -> statements statement','statements',2,'p_statements','interpreter.py',111),
-  ('statements -> statement','statements',1,'p_statements','interpreter.py',112),
-  ('statement -> if_statement','statement',1,'p_statement','interpreter.py',119),
-  ('statement -> else_statement','statement',1,'p_statement','interpreter.py',120),
-  ('statement -> print_statement','statement',1,'p_statement','interpreter.py',121),
-  ('statement -> assignment_statement','statement',1,'p_statement','interpreter.py',122),
-  ('statement -> function_definition','statement',1,'p_statement','interpreter.py',123),
-  ('if_statement -> RANKED ORO expression META expression COLON statements','if_statement',7,'p_if_statement','interpreter.py',127),
-  ('else_statement -> NORMAL COLON statements','else_statement',3,'p_else_statement','interpreter.py',131),
-  ('print_statement -> TAB STRING SEMICOLON','print_statement',3,'p_print_statement','interpreter.py',135),
-  ('assignment_statement -> ID ORO expression SEMICOLON','assignment_statement',4,'p_assignment_statement','interpreter.py',139),
-  ('function_definition -> BUILD ID COLON statements','function_definition',4,'p_function_definition','interpreter.py',143),
-  ('expression -> NUMBER','expression',1,'p_expression','interpreter.py',147),
-  ('expression -> STRING','expression',1,'p_expression','interpreter.py',148),
-  ('expression -> ID','expression',1,'p_expression','interpreter.py',149),
+  ("S' -> result","S'",1,None,None,None),
+  ('result -> expression','result',1,'p_result','gamer.py',87),
+  ('result -> if_statement','result',1,'p_result','gamer.py',88),
+  ('result -> print','result',1,'p_result','gamer.py',89),
+  ('result -> empty','result',1,'p_result','gamer.py',90),
+  ('result -> ID EQUAL expression','result',3,'p_var_assign','gamer.py',96),
+  ('expression -> INT','expression',1,'p_expression_int_float','gamer.py',102),
+  ('expression -> FLOAT','expression',1,'p_expression_int_float','gamer.py',103),
+  ('expression -> NAME','expression',1,'p_expr_str','gamer.py',109),
+  ('expression -> LNAME','expression',1,'p_expr_str','gamer.py',110),
+  ('expression -> ID','expression',1,'p_expression_var','gamer.py',116),
+  ('expression -> expression TIMES expression','expression',3,'p_expression','gamer.py',130),
+  ('expression -> expression DIVIDE expression','expression',3,'p_expression','gamer.py',131),
+  ('expression -> expression PLUS expression','expression',3,'p_expression','gamer.py',132),
+  ('expression -> expression MINUS expression','expression',3,'p_expression','gamer.py',133),
+  ('print -> PRINT LPAREN expression RPAREN','print',4,'p_print','gamer.py',169),
+  ('if_statement -> RANKED compare THEN expression','if_statement',4,'p_if_statement','gamer.py',175),
+  ('if_statement -> RANKED compare THEN print','if_statement',4,'p_if_statement','gamer.py',176),
+  ('compare -> expression EQUALS expression','compare',3,'p_comp','gamer.py',185),
+  ('compare -> expression NOTEQUALS expression','compare',3,'p_comp','gamer.py',186),
+  ('compare -> expression BIGGER expression','compare',3,'p_comp','gamer.py',187),
+  ('compare -> expression BIGGEROR expression','compare',3,'p_comp','gamer.py',188),
+  ('compare -> expression SMALLER expression','compare',3,'p_comp','gamer.py',189),
+  ('compare -> expression SMALLEROR expression','compare',3,'p_comp','gamer.py',190),
+  ('expression -> LPAREN expression RPAREN','expression',3,'p_factor_paren','gamer.py',212),
+  ('empty -> <empty>','empty',0,'p_empty','gamer.py',218),
 ]

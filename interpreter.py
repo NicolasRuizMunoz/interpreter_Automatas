@@ -18,15 +18,8 @@ elif -> flex
 = -> oro
 + -> ganar
 - -> perder
-Def (funcion) -> Build
-Return -> gg
-break -> ff
-continue -> go next
 False -> Troll
 True -> Carry
-For -> push
-While -> Run it down mid
-List -> team
 print -> tab
 
 '''
