@@ -1,0 +1,642 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    CARRY
+    CHALLENGER
+    COMMA
+    DIVIDE
+    EQUALS
+    FF
+    FLEX
+    GANAR
+    GG
+    GO_NEXT
+    HIERRO
+    JG_GAP
+    LBRACKET
+    LPAREN
+    MINUS
+    NEWLINE
+    PERDER
+    PLUS
+    PUSH
+    RBRACKET
+    RPAREN
+    RUN_IT_DOWN_MID
+    TEAM
+    TIMES
+    TROLL
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statements
+Rule 2     statements -> statements statement
+Rule 3     statements -> statement
+Rule 4     statement -> if_statement
+Rule 5     statement -> else_statement
+Rule 6     statement -> print_statement
+Rule 7     statement -> assignment_statement
+Rule 8     statement -> function_definition
+Rule 9     if_statement -> RANKED ORO expression META expression COLON statements
+Rule 10    else_statement -> NORMAL COLON statements
+Rule 11    print_statement -> TAB STRING SEMICOLON
+Rule 12    assignment_statement -> ID ORO expression SEMICOLON
+Rule 13    function_definition -> BUILD ID COLON statements
+Rule 14    expression -> NUMBER
+Rule 15    expression -> STRING
+Rule 16    expression -> ID
+
+Terminals, with rules where they appear
+
+BUILD                : 13
+CARRY                : 
+CHALLENGER           : 
+COLON                : 9 10 13
+COMMA                : 
+DIVIDE               : 
+EQUALS               : 
+FF                   : 
+FLEX                 : 
+GANAR                : 
+GG                   : 
+GO_NEXT              : 
+HIERRO               : 
+ID                   : 12 13 16
+JG_GAP               : 
+LBRACKET             : 
+LPAREN               : 
+META                 : 9
+MINUS                : 
+NEWLINE              : 
+NORMAL               : 10
+NUMBER               : 14
+ORO                  : 9 12
+PERDER               : 
+PLUS                 : 
+PUSH                 : 
+RANKED               : 9
+RBRACKET             : 
+RPAREN               : 
+RUN_IT_DOWN_MID      : 
+SEMICOLON            : 11 12
+STRING               : 11 15
+TAB                  : 11
+TEAM                 : 
+TIMES                : 
+TROLL                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+assignment_statement : 7
+else_statement       : 5
+expression           : 9 9 12
+function_definition  : 8
+if_statement         : 4
+print_statement      : 6
+program              : 0
+statement            : 2 3
+statements           : 1 2 9 10 13
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statements
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . if_statement
+    (5) statement -> . else_statement
+    (6) statement -> . print_statement
+    (7) statement -> . assignment_statement
+    (8) statement -> . function_definition
+    (9) if_statement -> . RANKED ORO expression META expression COLON statements
+    (10) else_statement -> . NORMAL COLON statements
+    (11) print_statement -> . TAB STRING SEMICOLON
+    (12) assignment_statement -> . ID ORO expression SEMICOLON
+    (13) function_definition -> . BUILD ID COLON statements
+
+    RANKED          shift and go to state 9
+    NORMAL          shift and go to state 10
+    TAB             shift and go to state 11
+    ID              shift and go to state 12
+    BUILD           shift and go to state 13
+
+    program                        shift and go to state 1
+    statements                     shift and go to state 2
+    statement                      shift and go to state 3
+    if_statement                   shift and go to state 4
+    else_statement                 shift and go to state 5
+    print_statement                shift and go to state 6
+    assignment_statement           shift and go to state 7
+    function_definition            shift and go to state 8
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statements .
+    (2) statements -> statements . statement
+    (4) statement -> . if_statement
+    (5) statement -> . else_statement
+    (6) statement -> . print_statement
+    (7) statement -> . assignment_statement
+    (8) statement -> . function_definition
+    (9) if_statement -> . RANKED ORO expression META expression COLON statements
+    (10) else_statement -> . NORMAL COLON statements
+    (11) print_statement -> . TAB STRING SEMICOLON
+    (12) assignment_statement -> . ID ORO expression SEMICOLON
+    (13) function_definition -> . BUILD ID COLON statements
+
+    $end            reduce using rule 1 (program -> statements .)
+    RANKED          shift and go to state 9
+    NORMAL          shift and go to state 10
+    TAB             shift and go to state 11
+    ID              shift and go to state 12
+    BUILD           shift and go to state 13
+
+    statement                      shift and go to state 14
+    if_statement                   shift and go to state 4
+    else_statement                 shift and go to state 5
+    print_statement                shift and go to state 6
+    assignment_statement           shift and go to state 7
+    function_definition            shift and go to state 8
+
+state 3
+
+    (3) statements -> statement .
+
+    RANKED          reduce using rule 3 (statements -> statement .)
+    NORMAL          reduce using rule 3 (statements -> statement .)
+    TAB             reduce using rule 3 (statements -> statement .)
+    ID              reduce using rule 3 (statements -> statement .)
+    BUILD           reduce using rule 3 (statements -> statement .)
+    $end            reduce using rule 3 (statements -> statement .)
+
+
+state 4
+
+    (4) statement -> if_statement .
+
+    RANKED          reduce using rule 4 (statement -> if_statement .)
+    NORMAL          reduce using rule 4 (statement -> if_statement .)
+    TAB             reduce using rule 4 (statement -> if_statement .)
+    ID              reduce using rule 4 (statement -> if_statement .)
+    BUILD           reduce using rule 4 (statement -> if_statement .)
+    $end            reduce using rule 4 (statement -> if_statement .)
+
+
+state 5
+
+    (5) statement -> else_statement .
+
+    RANKED          reduce using rule 5 (statement -> else_statement .)
+    NORMAL          reduce using rule 5 (statement -> else_statement .)
+    TAB             reduce using rule 5 (statement -> else_statement .)
+    ID              reduce using rule 5 (statement -> else_statement .)
+    BUILD           reduce using rule 5 (statement -> else_statement .)
+    $end            reduce using rule 5 (statement -> else_statement .)
+
+
+state 6
+
+    (6) statement -> print_statement .
+
+    RANKED          reduce using rule 6 (statement -> print_statement .)
+    NORMAL          reduce using rule 6 (statement -> print_statement .)
+    TAB             reduce using rule 6 (statement -> print_statement .)
+    ID              reduce using rule 6 (statement -> print_statement .)
+    BUILD           reduce using rule 6 (statement -> print_statement .)
+    $end            reduce using rule 6 (statement -> print_statement .)
+
+
+state 7
+
+    (7) statement -> assignment_statement .
+
+    RANKED          reduce using rule 7 (statement -> assignment_statement .)
+    NORMAL          reduce using rule 7 (statement -> assignment_statement .)
+    TAB             reduce using rule 7 (statement -> assignment_statement .)
+    ID              reduce using rule 7 (statement -> assignment_statement .)
+    BUILD           reduce using rule 7 (statement -> assignment_statement .)
+    $end            reduce using rule 7 (statement -> assignment_statement .)
+
+
+state 8
+
+    (8) statement -> function_definition .
+
+    RANKED          reduce using rule 8 (statement -> function_definition .)
+    NORMAL          reduce using rule 8 (statement -> function_definition .)
+    TAB             reduce using rule 8 (statement -> function_definition .)
+    ID              reduce using rule 8 (statement -> function_definition .)
+    BUILD           reduce using rule 8 (statement -> function_definition .)
+    $end            reduce using rule 8 (statement -> function_definition .)
+
+
+state 9
+
+    (9) if_statement -> RANKED . ORO expression META expression COLON statements
+
+    ORO             shift and go to state 15
+
+
+state 10
+
+    (10) else_statement -> NORMAL . COLON statements
+
+    COLON           shift and go to state 16
+
+
+state 11
+
+    (11) print_statement -> TAB . STRING SEMICOLON
+
+    STRING          shift and go to state 17
+
+
+state 12
+
+    (12) assignment_statement -> ID . ORO expression SEMICOLON
+
+    ORO             shift and go to state 18
+
+
+state 13
+
+    (13) function_definition -> BUILD . ID COLON statements
+
+    ID              shift and go to state 19
+
+
+state 14
+
+    (2) statements -> statements statement .
+
+    RANKED          reduce using rule 2 (statements -> statements statement .)
+    NORMAL          reduce using rule 2 (statements -> statements statement .)
+    TAB             reduce using rule 2 (statements -> statements statement .)
+    ID              reduce using rule 2 (statements -> statements statement .)
+    BUILD           reduce using rule 2 (statements -> statements statement .)
+    $end            reduce using rule 2 (statements -> statements statement .)
+
+
+state 15
+
+    (9) if_statement -> RANKED ORO . expression META expression COLON statements
+    (14) expression -> . NUMBER
+    (15) expression -> . STRING
+    (16) expression -> . ID
+
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expression                     shift and go to state 20
+
+state 16
+
+    (10) else_statement -> NORMAL COLON . statements
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . if_statement
+    (5) statement -> . else_statement
+    (6) statement -> . print_statement
+    (7) statement -> . assignment_statement
+    (8) statement -> . function_definition
+    (9) if_statement -> . RANKED ORO expression META expression COLON statements
+    (10) else_statement -> . NORMAL COLON statements
+    (11) print_statement -> . TAB STRING SEMICOLON
+    (12) assignment_statement -> . ID ORO expression SEMICOLON
+    (13) function_definition -> . BUILD ID COLON statements
+
+    RANKED          shift and go to state 9
+    NORMAL          shift and go to state 10
+    TAB             shift and go to state 11
+    ID              shift and go to state 12
+    BUILD           shift and go to state 13
+
+    statements                     shift and go to state 24
+    statement                      shift and go to state 3
+    if_statement                   shift and go to state 4
+    else_statement                 shift and go to state 5
+    print_statement                shift and go to state 6
+    assignment_statement           shift and go to state 7
+    function_definition            shift and go to state 8
+
+state 17
+
+    (11) print_statement -> TAB STRING . SEMICOLON
+
+    SEMICOLON       shift and go to state 25
+
+
+state 18
+
+    (12) assignment_statement -> ID ORO . expression SEMICOLON
+    (14) expression -> . NUMBER
+    (15) expression -> . STRING
+    (16) expression -> . ID
+
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expression                     shift and go to state 26
+
+state 19
+
+    (13) function_definition -> BUILD ID . COLON statements
+
+    COLON           shift and go to state 27
+
+
+state 20
+
+    (9) if_statement -> RANKED ORO expression . META expression COLON statements
+
+    META            shift and go to state 28
+
+
+state 21
+
+    (14) expression -> NUMBER .
+
+    META            reduce using rule 14 (expression -> NUMBER .)
+    SEMICOLON       reduce using rule 14 (expression -> NUMBER .)
+    COLON           reduce using rule 14 (expression -> NUMBER .)
+
+
+state 22
+
+    (15) expression -> STRING .
+
+    META            reduce using rule 15 (expression -> STRING .)
+    SEMICOLON       reduce using rule 15 (expression -> STRING .)
+    COLON           reduce using rule 15 (expression -> STRING .)
+
+
+state 23
+
+    (16) expression -> ID .
+
+    META            reduce using rule 16 (expression -> ID .)
+    SEMICOLON       reduce using rule 16 (expression -> ID .)
+    COLON           reduce using rule 16 (expression -> ID .)
+
+
+state 24
+
+    (10) else_statement -> NORMAL COLON statements .
+    (2) statements -> statements . statement
+    (4) statement -> . if_statement
+    (5) statement -> . else_statement
+    (6) statement -> . print_statement
+    (7) statement -> . assignment_statement
+    (8) statement -> . function_definition
+    (9) if_statement -> . RANKED ORO expression META expression COLON statements
+    (10) else_statement -> . NORMAL COLON statements
+    (11) print_statement -> . TAB STRING SEMICOLON
+    (12) assignment_statement -> . ID ORO expression SEMICOLON
+    (13) function_definition -> . BUILD ID COLON statements
+
+  ! shift/reduce conflict for RANKED resolved as shift
+  ! shift/reduce conflict for NORMAL resolved as shift
+  ! shift/reduce conflict for TAB resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for BUILD resolved as shift
+    $end            reduce using rule 10 (else_statement -> NORMAL COLON statements .)
+    RANKED          shift and go to state 9
+    NORMAL          shift and go to state 10
+    TAB             shift and go to state 11
+    ID              shift and go to state 12
+    BUILD           shift and go to state 13
+
+  ! RANKED          [ reduce using rule 10 (else_statement -> NORMAL COLON statements .) ]
+  ! NORMAL          [ reduce using rule 10 (else_statement -> NORMAL COLON statements .) ]
+  ! TAB             [ reduce using rule 10 (else_statement -> NORMAL COLON statements .) ]
+  ! ID              [ reduce using rule 10 (else_statement -> NORMAL COLON statements .) ]
+  ! BUILD           [ reduce using rule 10 (else_statement -> NORMAL COLON statements .) ]
+
+    statement                      shift and go to state 14
+    if_statement                   shift and go to state 4
+    else_statement                 shift and go to state 5
+    print_statement                shift and go to state 6
+    assignment_statement           shift and go to state 7
+    function_definition            shift and go to state 8
+
+state 25
+
+    (11) print_statement -> TAB STRING SEMICOLON .
+
+    RANKED          reduce using rule 11 (print_statement -> TAB STRING SEMICOLON .)
+    NORMAL          reduce using rule 11 (print_statement -> TAB STRING SEMICOLON .)
+    TAB             reduce using rule 11 (print_statement -> TAB STRING SEMICOLON .)
+    ID              reduce using rule 11 (print_statement -> TAB STRING SEMICOLON .)
+    BUILD           reduce using rule 11 (print_statement -> TAB STRING SEMICOLON .)
+    $end            reduce using rule 11 (print_statement -> TAB STRING SEMICOLON .)
+
+
+state 26
+
+    (12) assignment_statement -> ID ORO expression . SEMICOLON
+
+    SEMICOLON       shift and go to state 29
+
+
+state 27
+
+    (13) function_definition -> BUILD ID COLON . statements
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . if_statement
+    (5) statement -> . else_statement
+    (6) statement -> . print_statement
+    (7) statement -> . assignment_statement
+    (8) statement -> . function_definition
+    (9) if_statement -> . RANKED ORO expression META expression COLON statements
+    (10) else_statement -> . NORMAL COLON statements
+    (11) print_statement -> . TAB STRING SEMICOLON
+    (12) assignment_statement -> . ID ORO expression SEMICOLON
+    (13) function_definition -> . BUILD ID COLON statements
+
+    RANKED          shift and go to state 9
+    NORMAL          shift and go to state 10
+    TAB             shift and go to state 11
+    ID              shift and go to state 12
+    BUILD           shift and go to state 13
+
+    statements                     shift and go to state 30
+    statement                      shift and go to state 3
+    if_statement                   shift and go to state 4
+    else_statement                 shift and go to state 5
+    print_statement                shift and go to state 6
+    assignment_statement           shift and go to state 7
+    function_definition            shift and go to state 8
+
+state 28
+
+    (9) if_statement -> RANKED ORO expression META . expression COLON statements
+    (14) expression -> . NUMBER
+    (15) expression -> . STRING
+    (16) expression -> . ID
+
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expression                     shift and go to state 31
+
+state 29
+
+    (12) assignment_statement -> ID ORO expression SEMICOLON .
+
+    RANKED          reduce using rule 12 (assignment_statement -> ID ORO expression SEMICOLON .)
+    NORMAL          reduce using rule 12 (assignment_statement -> ID ORO expression SEMICOLON .)
+    TAB             reduce using rule 12 (assignment_statement -> ID ORO expression SEMICOLON .)
+    ID              reduce using rule 12 (assignment_statement -> ID ORO expression SEMICOLON .)
+    BUILD           reduce using rule 12 (assignment_statement -> ID ORO expression SEMICOLON .)
+    $end            reduce using rule 12 (assignment_statement -> ID ORO expression SEMICOLON .)
+
+
+state 30
+
+    (13) function_definition -> BUILD ID COLON statements .
+    (2) statements -> statements . statement
+    (4) statement -> . if_statement
+    (5) statement -> . else_statement
+    (6) statement -> . print_statement
+    (7) statement -> . assignment_statement
+    (8) statement -> . function_definition
+    (9) if_statement -> . RANKED ORO expression META expression COLON statements
+    (10) else_statement -> . NORMAL COLON statements
+    (11) print_statement -> . TAB STRING SEMICOLON
+    (12) assignment_statement -> . ID ORO expression SEMICOLON
+    (13) function_definition -> . BUILD ID COLON statements
+
+  ! shift/reduce conflict for RANKED resolved as shift
+  ! shift/reduce conflict for NORMAL resolved as shift
+  ! shift/reduce conflict for TAB resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for BUILD resolved as shift
+    $end            reduce using rule 13 (function_definition -> BUILD ID COLON statements .)
+    RANKED          shift and go to state 9
+    NORMAL          shift and go to state 10
+    TAB             shift and go to state 11
+    ID              shift and go to state 12
+    BUILD           shift and go to state 13
+
+  ! RANKED          [ reduce using rule 13 (function_definition -> BUILD ID COLON statements .) ]
+  ! NORMAL          [ reduce using rule 13 (function_definition -> BUILD ID COLON statements .) ]
+  ! TAB             [ reduce using rule 13 (function_definition -> BUILD ID COLON statements .) ]
+  ! ID              [ reduce using rule 13 (function_definition -> BUILD ID COLON statements .) ]
+  ! BUILD           [ reduce using rule 13 (function_definition -> BUILD ID COLON statements .) ]
+
+    statement                      shift and go to state 14
+    if_statement                   shift and go to state 4
+    else_statement                 shift and go to state 5
+    print_statement                shift and go to state 6
+    assignment_statement           shift and go to state 7
+    function_definition            shift and go to state 8
+
+state 31
+
+    (9) if_statement -> RANKED ORO expression META expression . COLON statements
+
+    COLON           shift and go to state 32
+
+
+state 32
+
+    (9) if_statement -> RANKED ORO expression META expression COLON . statements
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . if_statement
+    (5) statement -> . else_statement
+    (6) statement -> . print_statement
+    (7) statement -> . assignment_statement
+    (8) statement -> . function_definition
+    (9) if_statement -> . RANKED ORO expression META expression COLON statements
+    (10) else_statement -> . NORMAL COLON statements
+    (11) print_statement -> . TAB STRING SEMICOLON
+    (12) assignment_statement -> . ID ORO expression SEMICOLON
+    (13) function_definition -> . BUILD ID COLON statements
+
+    RANKED          shift and go to state 9
+    NORMAL          shift and go to state 10
+    TAB             shift and go to state 11
+    ID              shift and go to state 12
+    BUILD           shift and go to state 13
+
+    statements                     shift and go to state 33
+    statement                      shift and go to state 3
+    if_statement                   shift and go to state 4
+    else_statement                 shift and go to state 5
+    print_statement                shift and go to state 6
+    assignment_statement           shift and go to state 7
+    function_definition            shift and go to state 8
+
+state 33
+
+    (9) if_statement -> RANKED ORO expression META expression COLON statements .
+    (2) statements -> statements . statement
+    (4) statement -> . if_statement
+    (5) statement -> . else_statement
+    (6) statement -> . print_statement
+    (7) statement -> . assignment_statement
+    (8) statement -> . function_definition
+    (9) if_statement -> . RANKED ORO expression META expression COLON statements
+    (10) else_statement -> . NORMAL COLON statements
+    (11) print_statement -> . TAB STRING SEMICOLON
+    (12) assignment_statement -> . ID ORO expression SEMICOLON
+    (13) function_definition -> . BUILD ID COLON statements
+
+  ! shift/reduce conflict for RANKED resolved as shift
+  ! shift/reduce conflict for NORMAL resolved as shift
+  ! shift/reduce conflict for TAB resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for BUILD resolved as shift
+    $end            reduce using rule 9 (if_statement -> RANKED ORO expression META expression COLON statements .)
+    RANKED          shift and go to state 9
+    NORMAL          shift and go to state 10
+    TAB             shift and go to state 11
+    ID              shift and go to state 12
+    BUILD           shift and go to state 13
+
+  ! RANKED          [ reduce using rule 9 (if_statement -> RANKED ORO expression META expression COLON statements .) ]
+  ! NORMAL          [ reduce using rule 9 (if_statement -> RANKED ORO expression META expression COLON statements .) ]
+  ! TAB             [ reduce using rule 9 (if_statement -> RANKED ORO expression META expression COLON statements .) ]
+  ! ID              [ reduce using rule 9 (if_statement -> RANKED ORO expression META expression COLON statements .) ]
+  ! BUILD           [ reduce using rule 9 (if_statement -> RANKED ORO expression META expression COLON statements .) ]
+
+    statement                      shift and go to state 14
+    if_statement                   shift and go to state 4
+    else_statement                 shift and go to state 5
+    print_statement                shift and go to state 6
+    assignment_statement           shift and go to state 7
+    function_definition            shift and go to state 8
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for RANKED in state 24 resolved as shift
+WARNING: shift/reduce conflict for NORMAL in state 24 resolved as shift
+WARNING: shift/reduce conflict for TAB in state 24 resolved as shift
+WARNING: shift/reduce conflict for ID in state 24 resolved as shift
+WARNING: shift/reduce conflict for BUILD in state 24 resolved as shift
+WARNING: shift/reduce conflict for RANKED in state 30 resolved as shift
+WARNING: shift/reduce conflict for NORMAL in state 30 resolved as shift
+WARNING: shift/reduce conflict for TAB in state 30 resolved as shift
+WARNING: shift/reduce conflict for ID in state 30 resolved as shift
+WARNING: shift/reduce conflict for BUILD in state 30 resolved as shift
+WARNING: shift/reduce conflict for RANKED in state 33 resolved as shift
+WARNING: shift/reduce conflict for NORMAL in state 33 resolved as shift
+WARNING: shift/reduce conflict for TAB in state 33 resolved as shift
+WARNING: shift/reduce conflict for ID in state 33 resolved as shift
+WARNING: shift/reduce conflict for BUILD in state 33 resolved as shift
