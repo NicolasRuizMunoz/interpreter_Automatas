@@ -6,7 +6,7 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDEleftLPARENRPARENBIGGER BIGGEROR DANCE DIVIDE EQUAL EQUALS FLOAT ID INT LNAME LPAREN MINUS NAME NOTEQUALS PLUS PRINT RANKED RPAREN SMALLER SMALLEROR THEN TIMES\n    result : expression\n           | if_statement\n           | print\n           | empty\n    \n    result : ID EQUAL expression\n    \n    expression : INT\n               | FLOAT\n    \n    expression : NAME\n               | LNAME\n    \n    expression : ID\n    \n    expression : expression TIMES expression\n               | expression DIVIDE expression\n               | expression PLUS expression\n               | expression MINUS expression\n    \n    print : PRINT LPAREN expression RPAREN\n    \n    if_statement : RANKED compare THEN expression\n                 | RANKED compare THEN print\n    \n    compare : expression EQUALS expression\n            | expression NOTEQUALS expression\n            | expression BIGGER expression\n            | expression BIGGEROR expression\n            | expression SMALLER expression\n            | expression SMALLEROR expression\n    \n    expression : LPAREN expression RPAREN\n    \n    empty : \n    '
+_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDEleftLPARENRPARENBIGGER BIGGEROR DIVIDE EQUAL EQUALS FLOAT ID INT LNAME LPAREN MINUS NAME NOTEQUALS PLUS PRINT RANKED RPAREN SMALLER SMALLEROR THEN TIMES\n    result : expression\n           | if_statement\n           | print\n           | empty\n    \n    result : ID EQUAL expression\n    \n    expression : INT\n               | FLOAT\n    \n    expression : NAME\n               | LNAME\n    \n    expression : ID\n    \n    expression : expression TIMES expression\n               | expression DIVIDE expression\n               | expression PLUS expression\n               | expression MINUS expression\n    \n    print : PRINT LPAREN expression RPAREN\n    \n    if_statement : RANKED compare THEN expression\n                 | RANKED compare THEN print\n    \n    compare : expression EQUALS expression\n            | expression NOTEQUALS expression\n            | expression BIGGER expression\n            | expression BIGGEROR expression\n            | expression SMALLER expression\n            | expression SMALLEROR expression\n    \n    expression : LPAREN expression RPAREN\n    \n    empty : \n    '
     
 _lr_action_items = {'ID':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[6,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,]),'INT':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,]),'FLOAT':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,]),'NAME':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,]),'LNAME':([0,11,12,14,15,16,17,18,23,30,31,32,33,34,35,36,],[10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,]),'LPAREN':([0,11,12,13,14,15,16,17,18,23,30,31,32,33,34,35,36,],[11,11,11,23,11,11,11,11,11,11,11,11,11,11,11,11,11,]),'RANKED':([0,],[12,]),'PRINT':([0,30,],[13,13,]),'$end':([0,1,2,3,4,5,6,7,8,9,10,20,24,25,26,27,28,29,38,39,46,],[-25,0,-1,-2,-3,-4,-10,-6,-7,-8,-9,-10,-11,-12,-13,-14,-5,-24,-16,-17,-15,]),'TIMES':([2,6,7,8,9,10,19,20,22,24,25,26,27,28,29,37,38,40,41,42,43,44,45,],[14,-10,-6,-7,-8,-9,14,-10,14,-11,-12,14,14,14,-24,14,14,14,14,14,14,14,14,]),'DIVIDE':([2,6,7,8,9,10,19,20,22,24,25,26,27,28,29,37,38,40,41,42,43,44,45,],[15,-10,-6,-7,-8,-9,15,-10,15,-11,-12,15,15,15,-24,15,15,15,15,15,15,15,15,]),'PLUS':([2,6,7,8,9,10,19,20,22,24,25,26,27,28,29,37,38,40,41,42,43,44,45,],[16,-10,-6,-7,-8,-9,16,-10,16,-11,-12,-13,-14,16,-24,16,16,16,16,16,16,16,16,]),'MINUS':([2,6,7,8,9,10,19,20,22,24,25,26,27,28,29,37,38,40,41,42,43,44,45,],[17,-10,-6,-7,-8,-9,17,-10,17,-11,-12,-13,-14,17,-24,17,17,17,17,17,17,17,17,]),'EQUAL':([6,],[18,]),'RPAREN':([7,8,9,10,19,20,24,25,26,27,29,37,],[-6,-7,-8,-9,29,-10,-11,-12,-13,-14,-24,46,]),'EQUALS':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,31,-11,-12,-13,-14,-24,]),'NOTEQUALS':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,32,-11,-12,-13,-14,-24,]),'BIGGER':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,33,-11,-12,-13,-14,-24,]),'BIGGEROR':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,34,-11,-12,-13,-14,-24,]),'SMALLER':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,35,-11,-12,-13,-14,-24,]),'SMALLEROR':([7,8,9,10,20,22,24,25,26,27,29,],[-6,-7,-8,-9,-10,36,-11,-12,-13,-14,-24,]),'THEN':([7,8,9,10,20,21,24,25,26,27,29,40,41,42,43,44,45,],[-6,-7,-8,-9,-10,30,-11,-12,-13,-14,-24,-18,-19,-20,-21,-22,-23,]),}
 
@@ -27,29 +27,29 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> result","S'",1,None,None,None),
-  ('result -> expression','result',1,'p_result','gamer.py',87),
-  ('result -> if_statement','result',1,'p_result','gamer.py',88),
-  ('result -> print','result',1,'p_result','gamer.py',89),
-  ('result -> empty','result',1,'p_result','gamer.py',90),
-  ('result -> ID EQUAL expression','result',3,'p_var_assign','gamer.py',96),
-  ('expression -> INT','expression',1,'p_expression_int_float','gamer.py',102),
-  ('expression -> FLOAT','expression',1,'p_expression_int_float','gamer.py',103),
-  ('expression -> NAME','expression',1,'p_expr_str','gamer.py',109),
-  ('expression -> LNAME','expression',1,'p_expr_str','gamer.py',110),
-  ('expression -> ID','expression',1,'p_expression_var','gamer.py',116),
-  ('expression -> expression TIMES expression','expression',3,'p_expression','gamer.py',130),
-  ('expression -> expression DIVIDE expression','expression',3,'p_expression','gamer.py',131),
-  ('expression -> expression PLUS expression','expression',3,'p_expression','gamer.py',132),
-  ('expression -> expression MINUS expression','expression',3,'p_expression','gamer.py',133),
-  ('print -> PRINT LPAREN expression RPAREN','print',4,'p_print','gamer.py',169),
-  ('if_statement -> RANKED compare THEN expression','if_statement',4,'p_if_statement','gamer.py',175),
-  ('if_statement -> RANKED compare THEN print','if_statement',4,'p_if_statement','gamer.py',176),
-  ('compare -> expression EQUALS expression','compare',3,'p_comp','gamer.py',185),
-  ('compare -> expression NOTEQUALS expression','compare',3,'p_comp','gamer.py',186),
-  ('compare -> expression BIGGER expression','compare',3,'p_comp','gamer.py',187),
-  ('compare -> expression BIGGEROR expression','compare',3,'p_comp','gamer.py',188),
-  ('compare -> expression SMALLER expression','compare',3,'p_comp','gamer.py',189),
-  ('compare -> expression SMALLEROR expression','compare',3,'p_comp','gamer.py',190),
-  ('expression -> LPAREN expression RPAREN','expression',3,'p_factor_paren','gamer.py',212),
-  ('empty -> <empty>','empty',0,'p_empty','gamer.py',218),
+  ('result -> expression','result',1,'p_result','gamer.py',85),
+  ('result -> if_statement','result',1,'p_result','gamer.py',86),
+  ('result -> print','result',1,'p_result','gamer.py',87),
+  ('result -> empty','result',1,'p_result','gamer.py',88),
+  ('result -> ID EQUAL expression','result',3,'p_var_assign','gamer.py',94),
+  ('expression -> INT','expression',1,'p_expression_int_float','gamer.py',100),
+  ('expression -> FLOAT','expression',1,'p_expression_int_float','gamer.py',101),
+  ('expression -> NAME','expression',1,'p_expr_str','gamer.py',107),
+  ('expression -> LNAME','expression',1,'p_expr_str','gamer.py',108),
+  ('expression -> ID','expression',1,'p_expression_var','gamer.py',114),
+  ('expression -> expression TIMES expression','expression',3,'p_expression','gamer.py',128),
+  ('expression -> expression DIVIDE expression','expression',3,'p_expression','gamer.py',129),
+  ('expression -> expression PLUS expression','expression',3,'p_expression','gamer.py',130),
+  ('expression -> expression MINUS expression','expression',3,'p_expression','gamer.py',131),
+  ('print -> PRINT LPAREN expression RPAREN','print',4,'p_print','gamer.py',167),
+  ('if_statement -> RANKED compare THEN expression','if_statement',4,'p_if_statement','gamer.py',173),
+  ('if_statement -> RANKED compare THEN print','if_statement',4,'p_if_statement','gamer.py',174),
+  ('compare -> expression EQUALS expression','compare',3,'p_comp','gamer.py',183),
+  ('compare -> expression NOTEQUALS expression','compare',3,'p_comp','gamer.py',184),
+  ('compare -> expression BIGGER expression','compare',3,'p_comp','gamer.py',185),
+  ('compare -> expression BIGGEROR expression','compare',3,'p_comp','gamer.py',186),
+  ('compare -> expression SMALLER expression','compare',3,'p_comp','gamer.py',187),
+  ('compare -> expression SMALLEROR expression','compare',3,'p_comp','gamer.py',188),
+  ('expression -> LPAREN expression RPAREN','expression',3,'p_factor_paren','gamer.py',210),
+  ('empty -> <empty>','empty',0,'p_empty','gamer.py',216),
 ]

@@ -13,7 +13,6 @@ reserved = {
     'lose' : 'MINUS',
     'win_streak' : 'TIMES',
     'lose_streak' : 'DIVIDE',
-    'dance' : 'DANCE',
     'tab' : 'PRINT'
 }
 
@@ -32,7 +31,6 @@ t_TIMES = r'win_streak'
 t_DIVIDE = r'lose_streak'
 t_RANKED = r'si'
 t_THEN = r'entonces'
-t_DANCE = r'dance'
 t_PRINT = r'tab'
 t_EQUAL = r'\='
 t_EQUALS = r'\=\='
@@ -68,14 +66,14 @@ def t_NAME(t):
     return t
 
 def t_error(t):
-    print("\033[1;31;40m   (  Illegal Characters  )\033[0;37;40m")
+    print("\033[1;31;40m   (  Those aren't gamer terms...  )\033[0;37;40m")
     t.lexer.skip(1)
 
 lexer = lex.lex()
 
 variables = {}
-ErrorVariables = {}
-ErrorVariables['ErrorCount'] = 0
+Mistakes = {}
+Mistakes['ErrorCount'] = 0
 
 precedence = (
     ('left', 'PLUS', 'MINUS'),
@@ -120,8 +118,8 @@ def p_expression_var(t):
 
     except LookupError:
         print('')
-        print("\033[1;33;40m   (  Variable indefinida '%s'  )\033[0;37;40m" % t[1])
-        print("┐(ﾟ ～ﾟ )┌")
+        print("\033[1;33;40m   (  I dont know what that is '%s'  )\033[0;37;40m" % t[1])
+        print("?")
         time.sleep(1)
         t[0] = None
 
@@ -135,31 +133,31 @@ def p_expression(t):
     if t[2] == 'win':
         t[0] = t[1] + t[3]
 
-        if ErrorVariables['ErrorCount'] > 0:
-            ErrorVariables['ErrorCount'] -= 1
+        if Mistakes['ErrorCount'] > 0:
+            Mistakes['ErrorCount'] -= 1
 
     elif t[2] == 'lose':
         t[0] = t[1] - t[3]
 
-        if ErrorVariables['ErrorCount'] > 0:
-            ErrorVariables['ErrorCount'] -= 1
+        if Mistakes['ErrorCount'] > 0:
+            Mistakes['ErrorCount'] -= 1
 
     elif t[2] == 'win_streak':
         t[0] = t[1] * t[3]
 
-        if ErrorVariables['ErrorCount'] > 0:
-            ErrorVariables['ErrorCount'] -= 1
+        if Mistakes['ErrorCount'] > 0:
+            Mistakes['ErrorCount'] -= 1
 
     elif t[2] == 'lose_streak':
         try:
             t[0] = t[1] / t[3]
 
-            if ErrorVariables['ErrorCount'] > 0:
-                ErrorVariables['ErrorCount'] -= 1
+            if Mistakes['ErrorCount'] > 0:
+                Mistakes['ErrorCount'] -= 1
         except ZeroDivisionError:
             print("")
             print("\033[1;33;40m   (  Cant divide by 0  )\033[0;37;40m")
-            print("(ﾉﾟοﾟ)ﾉ")
+            print("( ‾ʖ̫‾)")
             time.sleep(1)
             t[0] = None
 
@@ -222,14 +220,14 @@ def p_empty(t):
 def p_error(t):
     print("")
     print("\033[1;31;40m   (  Syntax Error!  )\033[0;37;40m")
-    print("(╬≖_≖)")
+    print("( ‾ʖ̫‾)")
     time.sleep(1)
-    ErrorVariables['ErrorCount'] += 1
+    Mistakes['ErrorCount'] += 1
 
 def Answer(t):
-    if ErrorVariables['ErrorCount'] > 15:
-        print("\033[1;37;40m     Te equivocaste mucho, no te quiero contestar!\033[0;37;40m")
-        print("٩ (╬ʘ益ʘ╬) ۶")
+    if Mistakes['ErrorCount'] > 15:
+        print("\033[1;37;40m  waaaay to many mistakes, I dont want to play with you\033[0;37;40m")
+        print("( ‾ʖ̫‾)")
         time.sleep(1)
         return
     
@@ -238,7 +236,7 @@ def Answer(t):
 
 def AIMessage():
 
-    if ErrorVariables['ErrorCount'] == 6:
+    if Mistakes['ErrorCount'] == 6:
         print("           _/==+\ Reglas del Lenguaje /+==\_\n",
               '            "   "  =================  "   "  ')
         print("---------------------------------------------------------")
@@ -247,22 +245,22 @@ def AIMessage():
               "                 Multiplicacion = 'win_streak'\n",
               "                  Division = 'lose_streak'\n")
         print("---------------------------------------------------------")
-        ErrorVariables['ErrorCount'] += 1
-        return input('\033[1;47;40m(ﾉﾟοﾟ)ﾉ\033[0;37;40m')
+        Mistakes['ErrorCount'] += 1
+        return input('\033[1;47;40m( ‾ʖ̫‾)\033[0;37;40m')
 
-    if ErrorVariables['ErrorCount'] == 10:
+    if Mistakes['ErrorCount'] == 10:
         print("No se si me estas tratando enojar o que?")
-        ErrorVariables['ErrorCount'] += 1
-        return input('\033[1;47;40m(￣ｰ￣)\033[0;37;40m')
+        Mistakes['ErrorCount'] += 1
+        return input('\033[1;47;40m( ‾ʖ̫‾)\033[0;37;40m')
 
-    if ErrorVariables['ErrorCount'] < 7:
-        return input('\033[1;47;40m( /・・)ノ\033[0;37;40m')
+    if Mistakes['ErrorCount'] < 7:
+        return input('\033[1;47;40m( ‾ʖ̫‾)\033[0;37;40m')
 
-    elif ErrorVariables['ErrorCount'] > 6 and ErrorVariables['ErrorCount'] < 10:
-        return input('\033[1;47;40m(¬▂¬)\033[0;37;40m')
+    elif Mistakes['ErrorCount'] > 6 and Mistakes['ErrorCount'] < 10:
+        return input('\033[1;47;40m( ‾ʖ̫‾)\033[0;37;40m')
 
-    elif ErrorVariables['ErrorCount'] > 10:
-        return input('\033[1;47;40m(╬≖_≖)\033[0;37;40m')
+    elif Mistakes['ErrorCount'] > 10:
+        return input('\033[1;47;40m( ‾ʖ̫‾)\033[0;37;40m')
 
 parser = yacc.yacc()
 
